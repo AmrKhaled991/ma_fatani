@@ -20,9 +20,6 @@ final router = GoRouter(
       path: '/add-plan',
       builder: (context, state) => const AddPlanView(),
     ),
-    GoRoute(
-      path: '/settings',
-      builder: (context, state) => const SettingsView(),
-    ),
+   
   ],
 );
