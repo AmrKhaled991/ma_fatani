@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:ma_fatani/presentation/features/home/views/home_view.dart';
 
 class CustomNavigationBar extends StatelessWidget {
+  final VoidCallback onHomeTap;
+  final VoidCallback onSettingsTap;
+  final VoidCallback onAddTap;
+
   const CustomNavigationBar({
     super.key,
+    required this.onHomeTap,
+    required this.onSettingsTap,
+    required this.onAddTap,
   });
 
   @override
@@ -26,13 +33,13 @@ class CustomNavigationBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: onHomeTap,
                     icon: const Icon(Icons.home),
                     iconSize: 40,
                   ),
                   const SizedBox(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: onSettingsTap,
                     icon: const Icon(Icons.settings),
                     iconSize: 40,
                   ),
@@ -46,7 +53,7 @@ class CustomNavigationBar extends StatelessWidget {
               child: CircleAvatar(
                 radius: 25,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: onAddTap,
                   icon: const Icon(Icons.add),
                 ),
               ),

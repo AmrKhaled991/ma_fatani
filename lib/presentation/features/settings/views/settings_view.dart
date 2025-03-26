@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../viewmodels/settings_viewmodel.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
