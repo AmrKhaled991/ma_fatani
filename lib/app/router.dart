@@ -11,6 +11,8 @@ class AppRouter {
   static const String addPlan = '/add-plan';
 }
 
+//test  1 
+
 final router = GoRouter(
   initialLocation: '/onboarding',
   routes: [
