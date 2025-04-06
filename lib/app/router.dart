@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ma_fatani/features/aboutUs/view/aboutUs.dart';
-import 'package:ma_fatani/features/indicative_Opinions/views/indicative_Opinions.dart';
-import 'package:ma_fatani/features/language/views/language_screen.dart';
-import 'package:ma_fatani/features/prayer_times/views/prayer_times.dart';
+import 'package:ma_fatani/presentation/features/aboutUs/view/aboutUs.dart';
+import 'package:ma_fatani/presentation/features/indicative_Opinions/views/indicative_Opinions.dart';
+import 'package:ma_fatani/presentation/features/language/views/language_screen.dart';
+import 'package:ma_fatani/presentation/features/prayer_times/views/prayer_times.dart';
 import '../presentation/features/onboarding/views/onboarding_view.dart';
 import '../presentation/features/home/views/home_view.dart';
 import '../presentation/features/add_plan/views/add_plan_view.dart';
