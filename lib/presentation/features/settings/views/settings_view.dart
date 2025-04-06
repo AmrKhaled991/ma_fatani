@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:ma_fatani/app/router.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -11,28 +13,28 @@ class SettingsView extends StatelessWidget {
           leading: const Icon(Icons.feedback),
           title: const Text('آراء دالة'),
           onTap: () {
-            // Handle feedback tap
+            context.push(AppRouter.indicativeOpinions);
           },
         ),
         ListTile(
           leading: const Icon(Icons.access_time),
           title: const Text('مواقيت الصلاة'),
           onTap: () {
-            // Handle prayer times tap
+            context.push(AppRouter.prayerTimes);
           },
         ),
         ListTile(
           leading: const Icon(Icons.language),
           title: const Text('اللغة'),
           onTap: () {
-            // Handle language tap
+            context.push(AppRouter.language);
           },
         ),
         ListTile(
           leading: const Icon(Icons.info),
           title: const Text('عن التطبيق'),
           onTap: () {
-            // Handle about tap
+            context.push(AppRouter.aboutUs);
           },
         ),
       ],
