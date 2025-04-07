@@ -35,6 +35,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   go_router: ^13.2.0
   provider: ^6.1.1
+  adhan_dart: ^1.1.2
+  geolocator: ^11.0.0
+  http: ^1.3.0
+
 
 dev_dependencies:
   flutter_test:
