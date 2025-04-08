@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:adhan_dart/adhan_dart.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:ma_fatani/main.dart';
+import 'package:ma_fatani/core/helpers/format_dataTime.dart';
+import 'package:ma_fatani/presentation/widgets/SelectDropList.dart';
 import 'package:ma_fatani/presentation/widgets/custom_settings_screen_body.dart';
-import 'package:http/http.dart' as http;
 
 class PrayerTimesScreen extends StatefulWidget {
   const PrayerTimesScreen({super.key});
@@ -15,35 +12,18 @@ class PrayerTimesScreen extends StatefulWidget {
 }
 
 class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    getPrayerTimesFromApi();
-  }
-
-  Future<void> getPrayerTimesFromApi() async {
-    final url = Uri.parse(
-      'https://api.aladhan.com/v1/timings?latitude=${position!.latitude}&longitude=${position!.longitude}&method=4',
-    );
-
-    final res = await http.get(url);
-    if (res.statusCode == 200) {
-      final data = jsonDecode(res.body);
-      final timings = data['data']['timings'];
-      print("SS--Fajr: ${timings['Fajr']}");
-      print("SS--Dhuhr: ${timings['Dhuhr']}");
-      print("SS--Asr: ${timings['Asr']}");
-      print("SS--Maghrib: ${timings['Maghrib']}");
-      print("SS--Isha: ${timings['Isha']}");
-    } else {
-      print("Error fetching prayer times");
-    }
-  }
-
+  City city = CitiesData.allCities.first;
   @override
   Widget build(BuildContext context) {
+    Coordinates coordinates = Coordinates(city.latitude, city.longitude);
+
+    CalculationParameters params = CalculationMethod.egyptian();
+    params.madhab = Madhab.shafi;
+    PrayerTimes prayerTimes = PrayerTimes(
+        coordinates: coordinates,
+        date: DateTime.now(),
+        calculationParameters: params,
+        precision: true);
     return CustomSettingsScreenBody(
       title: 'Prayer Times',
       child: Column(
@@ -53,6 +33,38 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
             'Prayer time configurations...',
             style: TextStyle(fontSize: 16),
           ),
+          Text(
+            'prayerTimes.fajr => ${getFormattedTime(prayerTimes.fajr)} }',
+            style: const TextStyle(fontSize: 16),
+          ),
+          Text(
+            'prayerTimes.sunrise => ${getFormattedTime(prayerTimes.sunrise)}',
+            style: const TextStyle(fontSize: 16),
+          ),
+          Text(
+            'prayerTimes.dhuhr => ${getFormattedTime(prayerTimes.dhuhr)}',
+            style: const TextStyle(fontSize: 16),
+          ),
+          Text(
+            'prayerTimes.asr => ${getFormattedTime(prayerTimes.asr)}',
+            style: const TextStyle(fontSize: 16),
+          ),
+          Text(
+            'prayerTimes.maghrib => ${getFormattedTime(prayerTimes.maghrib)}',
+            style: const TextStyle(fontSize: 16),
+          ),
+          Text(
+            'prayerTimes.isha => ${getFormattedTime(prayerTimes.isha)}',
+            style: const TextStyle(fontSize: 16),
+          ),
+          CityDropdown(
+            onCitySelected: (value) {
+              setState(() {
+                city = value;
+              });
+            },
+            selectedCity: CitiesData.allCities.first,
+          )
 
           // Add prayer time controls here
         ],
