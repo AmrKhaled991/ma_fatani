@@ -49,7 +49,7 @@ class _OnboardingViewState extends State<OnboardingView> {
             left: 0,
             right: 0,
             child: Column(
-              children: [
+              children: [ 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
