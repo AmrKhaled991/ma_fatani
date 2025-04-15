@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ma_fatani/presentation/features/home/views/home_view.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   final VoidCallback onHomeTap;
@@ -23,7 +22,8 @@ class CustomNavigationBar extends StatelessWidget {
           ClipPath(
             clipper: BottomNavClipper(),
             child: Card(
-              color: Colors.green.shade100.withOpacity(0.95),
+              //27AE60
+              color: const Color(0xff27AE60),
               margin: const EdgeInsets.all(16),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -34,13 +34,16 @@ class CustomNavigationBar extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: onHomeTap,
-                    icon: const Icon(Icons.home),
+                    icon: const Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
                     iconSize: 40,
                   ),
                   const SizedBox(),
                   IconButton(
                     onPressed: onSettingsTap,
-                    icon: const Icon(Icons.settings),
+                    icon: const Icon(Icons.settings, color: Color(0xff2C3E50)),
                     iconSize: 40,
                   ),
                 ],
@@ -51,6 +54,7 @@ class CustomNavigationBar extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(25),
               child: CircleAvatar(
+                backgroundColor: const Color(0xffF1C40F),
                 radius: 25,
                 child: IconButton(
                   onPressed: onAddTap,

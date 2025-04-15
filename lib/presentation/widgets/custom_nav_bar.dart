@@ -16,14 +16,14 @@ class CustomNavBar extends StatelessWidget {
       height: 80,
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.green.shade100.withOpacity(0.95),
+        color: const Color(0xff03AA77),
         borderRadius: BorderRadius.circular(30),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: Colors.green.withOpacity(0.3),
+            color: Color(0xff03AA77),
             blurRadius: 15,
             spreadRadius: 5,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
