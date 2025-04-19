@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "431492777397",
+    "project_id": "mafatani",
+    "storage_bucket": "mafatani.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431492777397:android:3e45305aa7d6a4c7f2c5fc",
+        "android_client_info": {
+          "package_name": "com.example.ma_fatani"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDapNc9t9_L9K1Jn5eQ_gjk0gzfgPqyYf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
