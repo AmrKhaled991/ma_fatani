@@ -2,10 +2,12 @@ plugins {
     id "com.android.application"
     // START: FlutterFire Configuration
     id 'com.google.gms.google-services'
+    id "com.google.firebase.crashlytics"
     // END: FlutterFire Configuration
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
+    
 }
 
 android {
@@ -51,4 +53,6 @@ dependencies {
     implementation ("androidx.window:window-java:1.0.0")
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.google.android.material:material:1.8.0")
+    implementation ("com.google.firebase:firebase-crashlytics")
+
 }
