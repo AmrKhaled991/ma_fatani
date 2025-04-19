@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:ma_fatani/presentation/features/home/views/widgets/custom_navigation_bar.dart';
 import '../../settings/views/settings_view.dart';
@@ -13,6 +14,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final PageController _pageController = PageController();
+    FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
   @override
   void dispose() {
@@ -22,6 +24,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: const Color(0xffECF0F1),
       body: Stack(
@@ -35,15 +38,21 @@ class _HomeViewState extends State<HomeView> {
             ],
           ),
           CustomNavigationBar(
-            onHomeTap: () {
+            onHomeTap: () async{
               _pageController.animateToPage(0,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut);
+        await analytics.logEvent(
+            name: 'nav_bar_item_tapped',
+            parameters: {"item": "Home"});
             },
-            onSettingsTap: () {
+            onSettingsTap: ()async {
               _pageController.animateToPage(1,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut);
+                     await analytics.logEvent(
+            name: 'nav_bar_item_tapped',
+            parameters: {"item": "Settings"});
             },
             onAddTap: () {
               context.push(AppRouter.addPlan);

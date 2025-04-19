@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatelessWidget {
@@ -80,9 +81,13 @@ class CustomNavBar extends StatelessWidget {
   }
 
   Widget _buildNavItem(int index, IconData icon, String label) {
+    FirebaseAnalytics analytics = FirebaseAnalytics.instance;
     final isSelected = selectedIndex == index;
     return GestureDetector(
-      onTap: () => onItemSelected(index),
+      onTap: () async {
+        onItemSelected(index);
+       
+      },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
