@@ -42,17 +42,20 @@ class _HomeViewState extends State<HomeView> {
               _pageController.animateToPage(0,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut);
-        await analytics.logEvent(
-            name: 'nav_bar_item_tapped',
-            parameters: {"item": "Home"});
+ 
+        // await analytics.logEvent(
+        //     name: 'nav_bar_item_tapped',
+        //     parameters: {"item": "Home"});
             },
             onSettingsTap: ()async {
               _pageController.animateToPage(1,
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut);
-                     await analytics.logEvent(
-            name: 'nav_bar_item_tapped',
-            parameters: {"item": "Settings"});
+
+            //          await analytics.logEvent(
+            // name: 'nav_bar_item_tapped',
+            // parameters: {"item": "Settings"});
+            // throw Exception();
             },
             onAddTap: () {
               context.push(AppRouter.addPlan);
