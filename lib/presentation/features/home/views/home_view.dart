@@ -17,12 +17,7 @@ class _HomeViewState extends State<HomeView> {
     FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
   @override
-/*************  ✨ Windsurf Command ⭐  *************/
-/// Cleans up the controller when the state object is removed.
-/// Disposes of the `_pageController` and calls `super.dispose()` to
-/// ensure any other resources are properly released.
 
-/*******  f32878b0-8ca1-471e-9424-71bceb84baa9  *******/
   void dispose() {
     super.dispose();
     _pageController.dispose();
