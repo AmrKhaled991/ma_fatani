@@ -82,6 +82,7 @@ class CustomNavBar extends StatelessWidget {
 
 
 //fixes++
+//fixes++
   Widget _buildNavItem(int index, IconData icon, String label) {
     FirebaseAnalytics analytics = FirebaseAnalytics.instance;
     final isSelected = selectedIndex == index;
